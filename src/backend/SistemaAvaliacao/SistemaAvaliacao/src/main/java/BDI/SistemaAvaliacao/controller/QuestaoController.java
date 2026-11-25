@@ -36,7 +36,7 @@ public class QuestaoController{
 
     // Método 2: Listar todas as questões cadastradas no sistema
     @GetMapping
-    public List<Questao> listarTodas(){
+    public List<Map<String, Object>> listarTodas(){
         // 1: Chama o método listarTodas() do DAO para obter a lista de questões
         return questaoDAO.listarTodas();
     }

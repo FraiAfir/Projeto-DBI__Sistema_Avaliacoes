@@ -42,7 +42,7 @@ public class RespostaController{
 
     // Método 2: Listar todas as respostas livres pendentes de correção (RF6)
     @GetMapping("/pendentes")
-    public List<Resposta> listarPendentes(){
+    public List<Map<String, Object>> listarPendentes(){
         // 1: Chama o método listarRespostasLivresPendentes() do DAO para obter a lista de respostas pendentes
         return avaliacaoDAO.listarRespostasLivresPendentes();
     }

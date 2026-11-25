@@ -2,6 +2,8 @@ package BDI.SistemaAvaliacao.controller;
 
 import BDI.SistemaAvaliacao.dao.AvaliacaoDAO;
 import BDI.SistemaAvaliacao.model.Avaliacao;
+import BDI.SistemaAvaliacao.model.Questao;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,14 +38,14 @@ public class AvaliacaoController{
 
     // Método 2: Listar todas as avaliações de um aluno específico
     @GetMapping("/aluno/{matricula}")
-    public List<Avaliacao> listarPorAluno(@PathVariable String matricula){
+    public List<Map<String, Object>> listarPorAluno(@PathVariable String matricula){
         // 1: Chama o método listarPorAluno() do DAO para obter a lista de avaliações do aluno
         return avaliacaoDAO.listarPorAluno(matricula);
     }
 
     // Método 3: Buscar todas as questões de uma avaliação específica, incluindo alternativas para questões objetivas
     @GetMapping("/{codigo}/questoes")
-    public List<Questao> buscarQuestoes(@PathVariable Integer codigo){
+    public List<Map<String, Object>> buscarQuestoes(@PathVariable Integer codigo){
         // 1: Chama o método buscarQuestoesDaAvaliacao() do DAO para obter a lista de questões da avaliação
         return avaliacaoDAO.buscarQuestoesDaAvaliacao(codigo);
     }
