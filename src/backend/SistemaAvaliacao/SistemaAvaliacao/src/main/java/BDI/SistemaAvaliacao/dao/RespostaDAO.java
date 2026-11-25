@@ -85,10 +85,11 @@ public class RespostaDAO{
             SELECT c.valor
             FROM compoe c
             JOIN alternativa a ON a.codigo_questao = c.codigo_questao
-            WHERE c.codigo_avaliacao = ?
-            AND c.codigo_questao = ?
-            AND a.status = TRUE
-            AND CHR(64 + a.codigo) = UPPER(?)
+            
+            WHERE c.codigo_avaliacao = ?    AND
+                  c.codigo_questao   = ?    AND
+                  a.status           = TRUE AND
+                  CHR(64 + a.codigo) = UPPER(?)
         """;
 
         // 4: Retorna o valor da questão se a resposta estiver correta; caso contrário, retorna BigDecimal.ZERO
