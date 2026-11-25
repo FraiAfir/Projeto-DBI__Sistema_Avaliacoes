@@ -2,7 +2,6 @@ package BDI.SistemaAvaliacao.controller;
 
 import BDI.SistemaAvaliacao.dao.AvaliacaoDAO;
 import BDI.SistemaAvaliacao.model.Avaliacao;
-import BDI.SistemaAvaliacao.model.Questao;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
