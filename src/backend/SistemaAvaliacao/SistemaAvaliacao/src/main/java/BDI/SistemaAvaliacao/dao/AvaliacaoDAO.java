@@ -46,7 +46,9 @@ public class AvaliacaoDAO{
 
         // 3: Vincula questões à avaliação em 'compoe'
         if(av.getQuestoes() != null){
+            // Para cada questão
             for(ItemCompoe item : av.getQuestoes()){
+                // Insere a relação questão-avaliação na tabela 'compoe'
                 jdbc.update(
                     "INSERT INTO compoe (codigo_avaliacao, codigo_questao, valor) VALUES (?, ?, ?)",
                     codAvaliacao, item.getCodigoQuestao(), item.getValor()
@@ -56,7 +58,9 @@ public class AvaliacaoDAO{
 
         // 4: Vincula alunos à avaliação em 'faz'
         if(av.getMatriculasAlunos() != null){
+            // Para cada aluno
             for(String matricula : av.getMatriculasAlunos()){
+                // Insere a relação aluno-avaliação na tabela 'faz' com nota_final inicial como NULL
                 jdbc.update(
                     "INSERT INTO faz (codigo_avaliacao, matricula, nota_final) VALUES (?, ?, NULL)",
                     codAvaliacao, matricula
