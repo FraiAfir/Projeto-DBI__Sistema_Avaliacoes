@@ -146,8 +146,7 @@ public class RelatorioDAO{
         boolean temFiltroIn = codigosAvaliacao != null && !codigosAvaliacao.isEmpty();
 
         // 2: Construir a cláusula IN dinamicamente se houver filtro
-        String clausulaIn = temFiltroIn
-                ? 
+        String clausulaIn = temFiltroIn ?
                 " AND c.codigo_avaliacao IN ("+ String.join(",", Collections.nCopies(codigosAvaliacao.size(), "?"))+ ") "
                 : 
                 "";

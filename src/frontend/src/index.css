@@ -1,0 +1,45 @@
+* { box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
+body { margin: 0; background: #f1f5f9; color: #1e293b; }
+
+.topbar {
+  background: #0f172a; color: #fff; padding: 14px 24px;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
+}
+.topbar button {
+  background: #1e293b; color: #fff; border: 1px solid #334155;
+  padding: 6px 12px; border-radius: 6px; cursor: pointer;
+}
+.topbar button:hover { background: #2563eb; }
+
+.container { max-width: 1050px; margin: 24px auto; padding: 0 16px; }
+.card {
+  background: #fff; border-radius: 8px; padding: 20px; margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+label { display: block; font-weight: 600; margin: 10px 0 4px; font-size: 14px; }
+input[type="text"], input[type="date"], input[type="time"], input[type="number"], select, textarea {
+  width: 100%; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px;
+}
+
+.row { display: flex; gap: 10px; align-items: center; }
+.btn-primary {
+  background: #2563eb; color: #fff; border: none; padding: 9px 16px;
+  border-radius: 6px; cursor: pointer; font-weight: 600; margin-top: 10px;
+}
+.btn-primary:hover { background: #1d4ed8; }
+
+.box-alternativas { background: #f8fafc; padding: 12px; border-radius: 6px; border: 1px solid #e2e8f0; margin-top: 10px; }
+.scroll-box { max-height: 220px; overflow-y: auto; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px; }
+.item-check { display: flex; align-items: center; gap: 8px; padding: 6px 4px; border-bottom: 1px solid #f1f5f9; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px; }
+th, td { border-bottom: 1px solid #e2e8f0; padding: 9px 8px; text-align: left; }
+th { background: #f8fafc; font-weight: 600; }
+
+.badge { background: #e0e7ff; color: #1e40af; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+.erro { color: #dc2626; font-weight: 600; }
+.sucesso { color: #16a34a; font-weight: 600; }
+.muted { color: #64748b; }
+.atalhos { margin-top: 18px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+.atalhos button { margin-top: 6px; padding: 6px 10px; border-radius: 6px; border: 1px solid #cbd5e1; background: #f8fafc; cursor: pointer; font-size: 12px; }
