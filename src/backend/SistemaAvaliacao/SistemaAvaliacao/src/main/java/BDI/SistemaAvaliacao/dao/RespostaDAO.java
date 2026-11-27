@@ -53,21 +53,6 @@ public class RespostaDAO{
         // 3: Recalcular a nota final do aluno na tabela "faz"
         recalcularNotaFinal(sub.getCodigoAvaliacao(), sub.getMatricula());
     }
-
-    // Método 2: Atribuir nota a uma questão de resposta livre e recalcular a nota final
-    @Transactional
-    public void atribuirNotaQuestaoLivre(Integer codAvaliacao, Integer codQuestao, String matricula, BigDecimal nota){
-        // 1: Atualizar a nota obtida na tabela "responde"
-        jdbc.update(
-            "UPDATE responde SET nota_obtida = ? WHERE codigo_avaliacao = ? AND codigo_questao = ? AND matricula = ?",
-            nota, codAvaliacao, codQuestao, matricula
-        );
-
-        // 2: Recalcular a nota final do aluno na tabela "faz"
-        recalcularNotaFinal(codAvaliacao, matricula);
-    }
-
-
     // Método auxiliar para calcular a nota obtida se a questão for objetiva
     private BigDecimal calcularNotaSeObjetiva(Integer codAvaliacao, Integer codQuestao, String resposta){
         // 1: Verificar se a questão é objetiva (existe na tabela "objetiva")
@@ -99,7 +84,6 @@ public class RespostaDAO{
             codAvaliacao, codQuestao, resposta.trim()
         );
     }
-
     // Método auxiliar para recalcular a nota final do aluno na tabela "faz"
     private void recalcularNotaFinal(Integer codAvaliacao, String matricula){
         // 1: Calcular a nota final do aluno somando as notas obtidas na tabela "responde"
@@ -115,5 +99,18 @@ public class RespostaDAO{
 
         // 2: Atualizar a nota final do aluno na tabela "faz"
         jdbc.update(sqlTotal, codAvaliacao, matricula, codAvaliacao, matricula);
+    }
+
+    // Método 2: Atribuir nota a uma questão de resposta livre e recalcular a nota final
+    @Transactional
+    public void atribuirNotaQuestaoLivre(Integer codAvaliacao, Integer codQuestao, String matricula, BigDecimal nota){
+        // 1: Atualizar a nota obtida na tabela "responde"
+        jdbc.update(
+            "UPDATE responde SET nota_obtida = ? WHERE codigo_avaliacao = ? AND codigo_questao = ? AND matricula = ?",
+            nota, codAvaliacao, codQuestao, matricula
+        );
+
+        // 2: Recalcular a nota final do aluno na tabela "faz"
+        recalcularNotaFinal(codAvaliacao, matricula);
     }
 }
